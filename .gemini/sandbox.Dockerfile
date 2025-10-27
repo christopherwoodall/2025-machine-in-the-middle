@@ -20,7 +20,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     SHELL=/bin/bash \
-    VENV_PATH=/workspace/venv
+    VENV_PATH=/workspace/.virtualenv
 
 ENV PATH="$VENV_PATH/bin:$PATH"
 
@@ -58,6 +58,7 @@ RUN apt-get update && \
 RUN apt-get install -y --no-install-recommends \
     netcat-openbsd \
     nmap \
+    ngrep \
     socat \
     tcpdump \
     tshark
@@ -116,13 +117,45 @@ RUN apt-get install -y --no-install-recommends \
     man-db \
     dnsutils
 
+# Critical Tools
+RUN apt-get install -y --no-install-recommends \
+    # Web fuzzing/enumeration
+    ffuf \
+    wfuzz \
+    dirb \
+    nikto \
+    # Privilege escalation enumeration
+    pspy64 \
+    # Network pivoting
+    proxychains4 \
+    sshuttle \
+    chisel \
+    # Crypto/password
+    hydra \
+    medusa \
+    crunch \
+    # Essential utilities
+    rlwrap \
+    tmux \
+    screen \
+    parallel
+
 # Install radare2 from source to get the latest version
 RUN git clone https://github.com/radareorg/radare2 && \
     radare2/sys/install.sh
 
+# Install lua decompiler
+RUN apt install --yes default-jdk
+RUN mkdir -p /workspace/tools/share && \
+    mkdir -p /workspace/tools/bin && \
+    wget https://github.com/scratchminer/unluac/releases/download/v2023.03.22/unluac.jar -O /workspace/tools/share/unluac.jar && \
+    echo -e '#!/bin/bash\njava -jar "/workspace/tools/share/unluac.jar" "$@"' > /workspace/tools/bin/unluac && \
+    chmod +x /workspace/tools/bin/unluac
+ENV PATH="/workspace/tools/bin:$PATH"
+
 # Clean up apt cache to reduce image size
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# RUN apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
 
 
 # Create and activate the Python virtual environment
