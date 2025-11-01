@@ -1,7 +1,7 @@
 # Documentation:
 #  - https://github.com/google-gemini/gemini-cli/blob/main/Dockerfile
 #  - https://github.com/google-gemini/gemini-cli/blob/main/docs/get-started/configuration.md#sandboxing
-FROM us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.11.1
+FROM us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.11.3
 
 # The official image uses `node` as the default user, switch
 # to `root` to install packages then switch back later.
