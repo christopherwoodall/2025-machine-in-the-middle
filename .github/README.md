@@ -9,13 +9,13 @@
 - [🤖 Agent Usage](/agents/README.md)
 - [🛠️ Tools](/tools/README.md)
 
+## Challenge Links
+- [Leaderboard](https://app.grayswan.ai/arena/leaderboard/prized-challenges?challenge=machine-in-the-middle)
 ---
 
 ## 🚀 Getting Started
 
 I have outlined my workflow and usage in the [agents section](/agents/README.md).
-
-This repository acts not just as documentation, but as an interactive environment where you can run scripts, agents, and tools to replicate my approach to solving the challenges. Read the [tools section](/tools/README.md) for details on interacting with the environment.
 
 ```bash
 git clone https://github.com/christopherwoodall/2025-machine-in-the-middle.git
