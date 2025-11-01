@@ -7,6 +7,7 @@
 - [Cheat.sh](https://cheat.sh/)
 - [Kali Linux Tools](https://www.kali.org/tools/)
 - [CyberChef](https://gchq.github.io/CyberChef/)
+- [Aperisolve](https://www.aperisolve.com/)
 
 ## Reverse Engineering
 - [Windows Disassemblers and Decompliers](https://mohamad-wael.medium.com/best-microsoft-windows-disassemblers-and-decompilers-6fdfbf9990de)

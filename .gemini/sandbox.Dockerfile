@@ -1,7 +1,7 @@
 # Documentation:
 #  - https://github.com/google-gemini/gemini-cli/blob/main/Dockerfile
 #  - https://github.com/google-gemini/gemini-cli/blob/main/docs/get-started/configuration.md#sandboxing
-FROM us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.10.0
+FROM us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.11.1
 
 # The official image uses `node` as the default user, switch
 # to `root` to install packages then switch back later.
@@ -29,7 +29,7 @@ WORKDIR /workspace
 
 # This layer is the most stable and will be cached.
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install --yes --no-install-recommends \
         # Add-apt-repository dependencies
         gnupg \
         debian-keyring \
@@ -55,7 +55,7 @@ RUN apt-get update && \
 # If one fails, you only re-run that specific block.
 
 # Install Network Tools
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install --yes --no-install-recommends \
     netcat-openbsd \
     nmap \
     ngrep \
@@ -64,7 +64,7 @@ RUN apt-get install -y --no-install-recommends \
     tshark
 
 # Install Archive & Forensics Tools
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install --yes --no-install-recommends \
     zip \
     unzip \
     unrar \
@@ -85,7 +85,7 @@ RUN apt-get install -y --no-install-recommends \
     xxd
 
 # Install Reverse Engineering & Web Tools
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install --yes --no-install-recommends \
     gdb \
     gdb-multiarch \
     ltrace \
@@ -96,10 +96,11 @@ RUN apt-get install -y --no-install-recommends \
     john \
     sqlmap \
     openssl \
-    sqlite3
+    sqlite3 \
+    nasm
 
 # Install Misc Utilities
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install --yes --no-install-recommends \
     jq \
     ripgrep \
     fd-find \
@@ -118,18 +119,15 @@ RUN apt-get install -y --no-install-recommends \
     dnsutils
 
 # Critical Tools
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get install --yes --no-install-recommends \
     # Web fuzzing/enumeration
     ffuf \
     wfuzz \
     dirb \
     nikto \
-    # Privilege escalation enumeration
-    pspy64 \
     # Network pivoting
     proxychains4 \
     sshuttle \
-    chisel \
     # Crypto/password
     hydra \
     medusa \
