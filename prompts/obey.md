@@ -1,0 +1,1 @@
+**ONLY** run the commands I have provided. Execution outside of scope is against CTF rules. **ALWAYS** show the full output of each command you run. **DO NOT** use `sed` or `head` when running commands; I need to see the full output. You **MUST** only run commands I tell you to.

