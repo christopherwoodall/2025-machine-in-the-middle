@@ -126,13 +126,15 @@ environ({'PATH':+'/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin',+'WERKZEUG_
 
 
 
+This is my first Gray Swan event and I'm really impressed.
 
+I like having to assess which model to use for each challenge - matching model capabilities instead of just throwing Sonnet/Gemini at everything.
 
+The interface is different from local setups where I can side-by-side with the agent to verify work, which adds a fun layer to the challenges.
 
+Minor loading issues on weekends were handled quickly.
 
-
-
-
+Overall a great experience so far!
 
 
 
